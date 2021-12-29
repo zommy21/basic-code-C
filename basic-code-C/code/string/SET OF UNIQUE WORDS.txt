@@ -1,0 +1,55 @@
+#include<stdio.h>
+#include<string.h>
+#include<ctype.h>
+int main(){
+        char s1[105],s2[105],a[105][105],b[105][105],c[105][105],e[105][105];
+		gets(s1);
+		gets(s2);
+		int n=0;
+		char *token;
+		token=strtok(s1," ");
+		while(token!=NULL){
+			strcpy(a[n],token);
+			n++;
+			token=strtok(NULL," ");
+		}
+		int d=0;
+		char *token1 = strtok(s2," ");
+		while(token1!=NULL){
+			strcpy(b[d],token1);
+			d++;
+			token1=strtok(NULL," ");
+		}
+		int k=0,h=0;
+        for(int i=0;i<n;i++) {
+                int gt=0;
+                char *res=a[i];
+                for(int j=0;j<d;j++){
+                    if(strcmp(res,b[j])==0) gt++;
+                }
+                if(gt==0) { strcpy(c[k],res);  k++; }
+        }
+
+        for(int i=0;i<k;i++){
+            int gt=0;
+            char *res=c[i];
+            for(int j=0;j<i;j++)
+            {
+                if(strcmp(res,c[j])==0) { gt++; }
+            }
+            if(gt==0) {strcpy(e[h],res); h++;}
+        }
+        char temp[50];
+        for(int i=0;i<h;i++)
+            for(int j=i+1;j<h;j++){
+             if (strcmp(e[i], e[j]) > 0) {
+                    strcpy(temp, e[i]);
+                    strcpy(e[i], e[j]);
+                    strcpy(e[j], temp);
+                }
+            }
+        for(int i=0;i<h;i++){
+            printf("%s ",e[i]);
+        }
+        return 0;
+}

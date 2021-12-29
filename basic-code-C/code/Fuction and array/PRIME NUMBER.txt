@@ -1,0 +1,18 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(){
+    long int n,a[1000];
+    scanf("%li", &n);
+    for(long int i=0;i<n;i++) scanf("%li",&a[i]);
+    for(long int i=0;i<n;i++)
+    {
+        int res=0;
+        for(int j=2;j<=sqrt(a[i]);j++)
+           {
+               if(a[i]%j==0) res=res+1;
+           }
+        if (res==0) printf("YES\n") ; else printf("NO\n");
+
+    }
+}

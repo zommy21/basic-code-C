@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <math.h>
+
+long long getprime(long long n) {
+   long long i, max = -1;
+   while(n % 2 == 0) {
+      max = 2;
+      n = n/2;
+   }
+   for(i = 3; i*i<=n; i+=2) {
+      while(n % i == 0) {
+         max = i;
+         n /= i;
+      }
+   }
+   if(n > 2) max = n;
+   return max;
+}
+int main()
+{
+    int n;
+    scanf("%d\n", &n);
+    for (int c = 0; c < n; c++)
+    {
+        long long a;
+        scanf("%lld", &a);
+        printf("%lld\n", getprime(a));
+    }
+    return 0;
+
+}

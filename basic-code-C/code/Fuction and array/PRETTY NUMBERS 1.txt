@@ -1,0 +1,70 @@
+#include <stdio.h>
+
+long long int  Fibonacci(int n)
+{
+    long long int fb[94];
+    fb[1] = 0;
+    fb[2] = 1;
+
+    for (int i = 3; i <= 93; i++)
+    {
+        fb[i] = fb[i - 1] + fb[i - 2];
+    }
+    return fb[n];
+}
+
+int checkfb(long long int n)
+{
+    for (int i = 1; Fibonacci(i) <= n; i++)
+    {
+        if (Fibonacci(i) == n)
+        {
+            return 1;
+        }
+    }
+    return 0;
+}
+
+int checkngto(long long int n)
+{
+    if (n < 2)
+        return 0;
+
+    for (int i = 2; i <= sqrt((float)n); i ++)
+    {
+        if (n%i==0)
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+void Sol(long long int n)
+{
+    int res=n,d,sum=0;
+    while(res!=0)
+    {
+        d=res%10;
+        sum+=d;
+        res/=10;
+    }
+
+    if(checkfb(sum)==1&&checkngto(n)==1) printf("%lli ",n);
+}
+int main()
+{
+    long long int n,m;
+    scanf("%lli%lli", &n,&m);
+    if(n>m)
+    {
+        int res=m;
+        m=n;
+        n=res;
+    }
+    for(int i=n;i<=m;i++)
+    {
+        Sol(i);
+    }
+    return 0;
+}

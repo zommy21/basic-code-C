@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <stdlib.h>
+int a[100000],n,b[100000],c[1000000];
+void swap(int *xp, int *yp)
+{
+    int temp = *xp;
+    *xp = *yp;
+    *yp = temp;
+}
+void Sort(int b[] ,int n){
+    int tg;
+    for(int i = 0; i < n - 1; i++){
+        for(int j = i + 1; j < n; j++){
+            if(b[i] > b[j]){
+                swap(&a[i],&a[j]);
+                swap(&b[i],&b[j]);
+            }
+        }
+}
+}
+
+int main()
+{
+    scanf("%d",&n);
+    for(int i=0;i<n;i++)
+       {
+           scanf("%d",&a[i]);
+           b[i]=0;
+       }
+    for(int i=0;i<n;i++)
+    {
+        for(int j=0;j<n;j++)
+            b[i]+=abs(a[j]-a[i]);
+    }
+    Sort(b, n);
+    printf("%d %d",b[0],a[0]);
+    return 0;
+}

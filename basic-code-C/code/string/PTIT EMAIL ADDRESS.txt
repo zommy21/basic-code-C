@@ -1,0 +1,73 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include<string.h>
+
+int isWhiteSpace(char c){
+    return (c == ' ' || c == '\t')|| c == '\n';
+}
+
+void rutgon(char *s) {
+	int i, j;
+	int len = strlen(s);
+	for(i = 0; i < len; i++) {
+		if(isWhiteSpace(s[i]) && isWhiteSpace(s[i + 1])) {
+			for(j = i + 1; j < len; j++) {
+				s[j] = s[j + 1];
+			}
+			i--;
+			len--;
+		}
+		else if(s[i] == '\t') {
+			s[i] = ' ';
+		}
+        }
+
+        if(s[0]==' ')
+            for(i = 0; i < len; i++){ s[i]=s[i+1];
+        }
+    s[len]='\t';
+}
+
+char lower(char c){
+    if('A' <= c && c <= 'Z'){
+        c = c + ('a' - 'A');
+    }
+    return c;
+}
+
+int Count(char str[])
+{
+    int word = (str[0] != ' ');
+    for (int i = 0; i < strlen(str)-1; i++)
+    {
+        if (str[i] == ' ' && str[i + 1] != ' ')
+        {
+            word++;
+        }
+    }
+    return word;
+}
+
+void getprime(char *s) {
+            int i;
+            for(i=0; i<strlen(s)-1; i++) {
+                    s[i]=lower(s[i]);
+                }
+}
+
+int main() {
+    char s[1000],s1[1000];
+    gets(s);
+    rutgon(s);
+    getprime(s);printf("%c",s[0]);
+    for(int i=0;i<strlen(s);i++){
+        if(s[i-1]==' '&&s[i]!=' ') printf("%c",s[i]);
+    }
+    int d=1;
+    for(int i=0;i<strlen(s)-1;i++){
+        if(s[i-1]==' '&&s[i]!=' ') d++;
+        if(d==Count(s)&&s[i-1]!=' ') printf("%c",s[i]);
+    }
+    printf("@ptit.edu.vn");
+    return 0;
+}

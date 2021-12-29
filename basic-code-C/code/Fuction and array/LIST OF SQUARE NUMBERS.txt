@@ -1,0 +1,16 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+long int res=0;
+int main()
+{
+    long int m,n,res1,res2;
+    scanf("%li%li",&m,&n);
+    res1=ceil(sqrt(m));
+    res2=floor(sqrt(n));
+    for(int i=res1;i<=res2;i++) res++;
+    printf("%li\n",res);
+    for(int i=res1;i<=res2;i++) printf("%li\n",i*i);
+
+
+}

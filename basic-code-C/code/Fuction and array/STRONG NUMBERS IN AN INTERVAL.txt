@@ -1,0 +1,39 @@
+#include<stdio.h>
+
+void Sol(int n)
+{
+    int res, d, i, pos, sum=0;
+    res = n;
+     while( n!=0 )
+     {
+         pos = 1;
+         d = n%10;
+         for(i=1; i<=d; i++)
+         {
+             pos *= i;
+         }
+         sum += pos;
+         n /= 10;
+     }
+     if( res == sum )
+       {
+           printf("%d",res); printf(" ");
+       }
+}
+int main()
+{
+     int n,m;
+     scanf("%d%d",&n,&m);
+     if(n>m)
+     {
+         int res=m;
+         m=n;
+         n=res;
+     }
+     for(int i=n;i<=m;i++)
+     {
+         Sol(i);
+     }
+
+     return 0;
+}

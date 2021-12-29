@@ -1,0 +1,132 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct hcn
+{
+	long long a;
+	long long b;
+} typedef hcn;
+
+int res[]={1, 2, 3};
+
+int Sol ()
+{
+	int vt=-1;
+	for (int i=2; i>=1; i--)
+	{
+		if (res[i]>res[i-1])
+		{
+			vt=i-1;
+			break;
+		}
+	}
+	if (vt!=-1)
+	{
+		for (int i=2; i>=0; i--)
+		{
+			if (res[i]>res[vt])
+			{
+				int tg=res[i];
+				res[i]=res[vt];
+				res[vt]=tg;
+				break;
+			}
+		}
+		for (int i=vt+1; i<3; i++)
+		{
+			for (int j=vt+1; j<2; j++)
+			{
+				if (res[j]>res[j+1])
+				{
+					int tg=res[j];
+					res[j]=res[j+1];
+					res[j+1]=tg;
+				}
+			}
+		}
+		return 1;
+	}
+	else return 0;
+}
+int main()
+{
+    hcn d[3];
+	for (int i=0; i<3; i++)
+	{
+		scanf("%d%d",&d[i].a,&d[i].b);
+	}
+	for (int i=0; i<3; i++)
+	{
+		if (d[i].a>d[i].b)
+		{
+			int tg=d[i].b;
+			d[i].b=d[i].a;
+			d[i].a=tg;
+		}
+	}
+	if (d[0].b==d[1].b && d[1].b==d[2].b && d[0].a+d[1].a+d[2].a==d[0].b)
+	{
+		printf("YES");
+		return 0;
+	}
+	hcn vt[4];
+	while (1)
+	{
+		for (int i=0; i<3; i++)
+		{
+			vt[res[i]].a=d[i].a;
+			vt[res[i]].b=d[i].b;
+		}
+		for (int i=1; i<=2; i++)
+		{
+			long long a1, b1;
+			if (i==1)
+			{
+				a1=vt[1].a;
+				b1=vt[1].b;
+			}
+			else
+			{
+				a1=vt[1].b;
+				b1=vt[1].a;
+			}
+			for (int j=1; j<=2; j++)
+			{
+				long long a2, b2;
+				if (j==1)
+				{
+					a2=vt[2].a;
+					b2=vt[2].b;
+				}
+				else
+				{
+					a2=vt[2].b;
+					b2=vt[2].a;
+				}
+				for (int k=1; k<=2; k++)
+				{
+					long long a3, b3;
+					if (k==1)
+					{
+						a3=vt[3].a;
+						b3=vt[3].b;
+					}
+					else
+					{
+						a3=vt[3].b;
+						b3=vt[3].a;
+					}
+
+					if (a1+a2==a3 && b1==b2 && b2+b3==a3)
+					{
+						printf("YES");;
+						return 0;
+					}
+				}
+			}
+		}
+		if (Sol()==0) break;
+	}
+	printf("NO");
+    return 0;
+}

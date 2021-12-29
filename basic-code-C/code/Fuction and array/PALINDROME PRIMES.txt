@@ -1,0 +1,51 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdbool.h>
+
+
+int checkngto(long long int n)
+{
+    if (n < 2)
+        return 0;
+
+    for (int i = 2; i <= sqrt((float)n); i ++)
+    {
+        if (n%i==0)
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+int Sol(int n)
+{
+    int r,sum=0,res;
+    for(res=n;n!=0;n=n/10){
+         r=n%10;
+         sum=sum*10+r;
+    }
+    if(res==sum&&checkngto(res)==1) return 1;
+    else return 0;
+}
+int main(){
+    int t;
+    scanf("%d",&t);
+    while(t--)
+    {
+    int a,b,d=0;
+    scanf("%d%d",&a,&b);
+    if(a>b)
+    {
+        int res=a;
+        a=b;
+        b=res;
+    }
+    for(int i=a;i<=b;i++)
+       {
+           if(Sol(i)) { printf("%d ",i); d++; if(d!=0&&d%10==0) printf("\n");}
+       }
+    printf("\n");
+    }
+}
+

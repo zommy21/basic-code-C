@@ -1,0 +1,15 @@
+
+#include<stdio.h>
+int main(){
+    int n,d,a[1000];
+
+    scanf("%d",&n);
+    int s = 1;
+
+    while(n!=0)    {
+        d = n % 10;
+        s = s *d;
+        n /= 10;
+    }
+    printf("%d\n",s);
+}

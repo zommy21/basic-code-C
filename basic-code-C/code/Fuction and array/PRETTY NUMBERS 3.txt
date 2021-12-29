@@ -1,0 +1,54 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdbool.h>
+
+int Sol1(long long int n)
+{
+    long long int r,res,sum2=0;
+    for(res=n;n!=0;n=n/10){
+         r=n%10;
+         if(r==6) sum2++;
+
+    }
+    if(sum2!=0) return 1;
+    else return 0;
+}
+int Sol2(long long int n)
+{
+    long long int r,res,sum2=0;
+    for(res=n;n!=0;n=n/10){
+         r=n%10;
+         sum2=sum2+r;
+
+    }
+    if(sum2%10==8) return 1;
+    else return 0;
+}
+int Palindromic(long long int n)
+{
+    long long int r,sum1=0,res;
+    for(res=n;n!=0;n=n/10){
+         r=n%10;
+         sum1=sum1*10+r;
+
+    }
+    if(res==sum1) return 1;
+    else return 0;
+}
+int main(){
+    long long int m,n;
+    scanf("%lli%lli",&m,&n);
+    if(m>n) {long long int res=m; m=n;n=res;}
+    for(long long int i=m;i<=n;i++)
+    {
+        if(Palindromic(i)==1)
+            {
+                if(Sol1(i)==1)
+                    {
+                        if(Sol2(i)==1) printf("%d ",i);
+                    }
+            }
+    }
+
+    return 0;
+}

@@ -1,0 +1,38 @@
+#include<stdio.h>
+
+void Sol(int t)
+{
+    int res=t;
+    while(t--)
+    {
+    int a[100],n,b[100];
+    scanf("%d",&n);
+    for(int i=0;i<n;i++)
+    {
+        scanf("%d",&a[i]);
+    }
+    for(int i=0;i<n;i++) b[i]=1;
+    printf("Test %d:\n",res-t);
+    for(int i=0;i<n;i++)
+    {
+        int res=1;
+        if(b[i]){
+                    for(int j=0;j<n;j++)
+                        if(a[j]==a[i]&&i!=j)
+                            {
+                                res++;
+                                b[j]=0;
+                            }
+                  printf("%d appears %d times\n",a[i],res);
+                }
+
+    }
+    }
+}
+int main()
+{
+    int t;
+    scanf("%d",&t);
+    Sol(t);
+    return 0;
+}

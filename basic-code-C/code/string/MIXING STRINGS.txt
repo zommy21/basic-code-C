@@ -1,0 +1,39 @@
+#include<stdio.h>
+#include<string.h>
+#include<ctype.h>
+
+int main()
+{
+    int t=1;
+    while(t){
+    int h; scanf("%d",&h);
+    getchar();
+    if(h==0) break; else{
+        char s[205],s1[205],s2[405],xs[405];
+    gets(s1);
+    gets(s2);
+    gets(s);
+    int vip=h;
+    int n=strlen(s1);
+    int res=2*n,pos=0,count=0;
+    for(int k=0;k<res;k++){
+        int d=0,i;
+        for( i=0;i<(2*n)-1;i=i+2)
+    {
+        xs[i]=s2[d];
+        xs[i+1]=s1[d];
+        d++;
+    }
+    xs[i]='\0';
+    count++;
+    if(strcmp(xs,s)==0) {pos = 1 ; break ;}
+    else {
+    for(int j=0;j<n;j++) s1[j]=xs[j];
+    for(int j=n;j<(2*n);j++) s2[j-n]=xs[j];
+    }
+    }
+    if(pos) printf("%d\n",count); else printf("-1\n");
+    }
+    }
+    return 0;
+}

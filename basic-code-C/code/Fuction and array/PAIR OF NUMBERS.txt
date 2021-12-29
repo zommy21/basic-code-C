@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int UCLN(long int a,long int b){
+    if (a == 0 || b == 0){
+        return a + b;
+    }
+    while (a != b){
+        if (a > b){
+            a=a-b;
+        }else{
+            b=b-a;
+        }
+    }
+    return a;
+}
+
+int main()
+{
+    int t;
+    scanf("%d",&t);
+    while(t--)
+    {
+        long int a,b,c,d;
+        scanf("%li%li%li%li",&a,&b,&c,&d);
+        if (UCLN(a,b)==UCLN(c,d)) printf("YES\n") ; else printf("NO\n");
+    }
+    return 0;
+}

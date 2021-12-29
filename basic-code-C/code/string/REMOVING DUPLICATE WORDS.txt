@@ -1,0 +1,51 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main ()
+{
+	char str[100], word[100], luu[10][30];
+	int i = 0, j = 0, k = 0, len1 = 0, len2 = 0, l = 0;
+	gets (str);
+	for (i = 0; str[i] != '\0'; i++)
+	{
+		if (str[i] == ' ')
+		{
+			luu[k][j] = '\0';
+			k ++;
+			j = 0;
+		}
+		else
+		{
+			luu[k][j] = str[i];
+			j ++;
+		}
+	}
+	luu[k][j] = '\0';
+	j = 0;
+	for (i = 0; i < k; i++)
+	{
+		int res = 0;
+		for (l = 1; l < k + 1; l++)
+		{
+			if (luu[l][j] == '\0' || l == i)
+			{
+				continue;
+			}
+
+			if (strcmp (luu[i], luu[l]) == 0) {
+				luu[l][j] = '\0';
+				res = res + 1;
+			}
+		}
+	}
+	j = 0;
+	for (i = 0; i < k + 1; i++)
+	{
+		if (luu[i][j] == '\0')
+			continue;
+		else
+			printf ("%s ", luu[i]);
+	}
+	return 0;
+}

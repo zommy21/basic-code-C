@@ -1,0 +1,22 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int gcd(long int a, long int b) {
+    long int tmp;
+    while(b != 0) {
+        tmp = a % b;
+        a = b;
+        b = tmp;
+    }
+    return a;
+}
+int main()
+{
+    long int m,n;
+    long long int res,pos;
+    scanf("%li%li",&m,&n);
+    res=gcd(m,n);
+    pos=(m*n)/res;
+    printf("%lli\n%lli",res,pos);
+    return 0;
+}

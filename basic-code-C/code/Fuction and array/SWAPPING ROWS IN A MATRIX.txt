@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int m,n,a[100][100],res,pos;
+    scanf("%d%d",&m,&n);
+    for(int i=1;i<=m;i++)
+        for(int j=1;j<=n;j++)
+            scanf("%d",&a[i][j]);
+    scanf("%d%d",&res,&pos);
+    for(int i=1;i<=m;i++)
+        for(int j=1;j<=n;j++)
+            {
+                if(i==res) { int t=a[i][j];
+                            a[i][j]=a[pos][j];
+                            a[pos][j]=t;}
+            }
+     for(int i=1;i<=m;i++)
+        {{ for(int j=1;j<=n;j++)
+            printf("%d ",a[i][j]);}
+            printf("\n");}
+    return 0;
+}

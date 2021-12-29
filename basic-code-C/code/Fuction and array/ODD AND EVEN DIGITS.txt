@@ -1,0 +1,22 @@
+#include<stdio.h>
+
+int main(){
+    int n,d,a[1000];
+    scanf("%d",&n);
+    for(int i=0;i<n;i++)  scanf("%d",&a[i]);
+    for(int i=0;i<n;i++)
+    {
+        int res=0;
+        int pos=0;
+        while(a[i]!=0)
+            {
+                d = a[i] % 10;
+                if (d%2==0) res++; else pos++;
+                a[i] /= 10;
+            }
+        printf("%d",pos);
+        printf(" ");
+        printf("%d",res);
+        printf("\n");
+    }
+}

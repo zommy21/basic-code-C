@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <string.h>
+
+int demchucai(char *str)
+{
+    int i=0,d=0;
+    while(str[i]!=0){
+                    if ((str[i]>='A' && str[i]<='Z') || (str[i]>='a' && str[i]<='z'))
+                    d++;
+                    i++;
+    }
+    return d;
+}
+
+int demchuso(char *str)
+{
+    int i=0,d=0;
+    while(str[i]!=0){
+                    if (str[i]>='0' && str[i]<='9')
+                    d++;
+                    i++;
+    }
+return d;
+}
+
+int main()
+{
+    char s[100];
+    gets(s);
+    printf("%d ",demchucai(s));
+    printf("%d ",demchuso(s));
+    int length = strlen(s) - (demchucai(s)+demchuso(s));
+    printf("%d",length);
+    return 0;
+}

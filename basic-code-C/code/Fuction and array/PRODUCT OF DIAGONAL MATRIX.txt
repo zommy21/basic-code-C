@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int m,n,p,a[100][100],b[100][100],c[100][100],res,pos;
+void Sol()
+{
+    for(int i=1;i<=n;i++)
+        {for(int j=1;j<=n;j++){
+            {
+                    c[i][j]=0;
+            }
+            for(int k=1;k<=n;k++)
+               c[i][j]+=a[i][k]*b[k][j];
+          printf("%d ",c[i][j]);
+        }
+       printf("\n");
+        }
+}
+int main()
+{
+    int t,res;
+    scanf("%d",&t);
+    res=t;
+    while(t--)
+    {
+        scanf("%d",&n);
+    for(int i=1;i<=n;i++)
+        for(int j=1;j<=n;j++){
+        if(j<=i) a[i][j]=j; else a[i][j]=0;
+    }
+    for(int i=1;i<=n;i++)
+      {
+          for(int j=1;j<=n;j++)
+            b[i][j]=a[j][i];
+      }
+      printf("Test %d:\n",res-t);
+      Sol();
+    }
+    return 0;
+}

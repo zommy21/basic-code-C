@@ -1,0 +1,51 @@
+#include <stdio.h>
+
+void xuat (int a[], int n)  {
+    int i;
+    for (i = 0; i < n; i++)  {
+        printf ("%d ", a[i]);  }
+    printf ("\n");
+}
+int lenmax (int a[], int n)  {
+    int i, j, len = 1, k;  i = 0;
+    while (i < n)  {
+        k = 1;
+        for (j = i + 1; a[j-1] < a[j] && j < n; j++)  {
+            k++;
+        }
+        if (len < k)  {
+            len = k;  i = j;  }
+        else  i++;
+    }  return len;
+}
+void dayconmax (int a[], int n)  {
+    int i, j, k;
+    printf ("%d\n", lenmax(a, n));
+    i = 0;
+    while (i < n)  {
+        k = 1;
+        for (j = i+1; (a[j-1] <= a[j]) && (j < n); j++)  {
+            k++;
+        }
+        if (k == lenmax(a, n) )  {
+            xuat (a+i, lenmax(a, n));
+            i = j;
+        }
+        else  i++;
+    }
+}
+int main()  {
+    int t,res;
+    scanf("%d",&t);
+    res=t;
+    while(t--)
+    {
+    int n,a[100000];
+    scanf("%d",&n);
+    for(int i=0;i<n;i++)
+        scanf("%d",&a[i]);
+    printf("Test %d:\n",res-t);
+    dayconmax (a, n);
+    }
+    return 0;
+}

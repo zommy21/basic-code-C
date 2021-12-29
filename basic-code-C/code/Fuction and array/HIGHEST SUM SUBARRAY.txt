@@ -1,0 +1,45 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+int a[100000];
+int main()
+{
+    int t;
+    scanf("%d",&t);
+    while(t--)
+    {
+        int n;
+        scanf("%d",&n);
+        bool kt=false;
+        int max;
+        for(int i=0;i<n;i++)
+        {
+            scanf("%d",&a[i]);
+            if(a[i]>0) kt=true;
+            if(i==0) max=a[0];
+            else {
+                if(max<a[i]) max=a[i];
+            }
+
+        }
+
+        if(!kt) printf("%d\n",max);
+        else
+        {
+            long long int summax=0,res=a[0];
+            for(int i=0;i<n;i++)
+            {
+                if(summax+a[i]<0)
+                {
+                    summax =0;
+                    continue;
+                }
+                summax=summax+a[i];
+                if(res<summax) res=summax;
+            }
+            printf("%lli\n",res);
+        }
+
+    }
+    return 0;
+}

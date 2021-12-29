@@ -1,0 +1,59 @@
+#include <stdio.h>
+
+int Sol1(int n)
+{
+    int res = 1;
+    while (n != 0)
+    {
+        res *= 10;
+        n--;
+    }
+    return res;
+}
+
+int Sol2(int n)
+{
+    int sum = 0;
+    while (n > 0)
+    {
+        sum += n % 10;
+        n /= 10;
+    }
+    return sum;
+}
+int main()
+{
+    int n;
+    scanf("%d\n", &n);
+    for (int c = 0; c < n; c++)
+    {
+        long long a, res = 0;
+        scanf("%lld", &a);
+
+        if (a % 2 == 0)
+        {
+
+            for (int i = Sol1(a / 2 - 1); i < Sol1(a / 2); i++)
+            {
+                if (Sol2(i) % 5 == 0)
+                    res++;
+            }
+            printf("%lld\n", res);
+        }
+
+        else
+        {
+            for (int j = 0; j < 10; j++)
+            {
+                for (int i = Sol1(a / 2 - 1); i < Sol1(a / 2); i++)
+                {
+                    if ((Sol2(i) * 2 + j) % 5 == 0)
+                        res++;
+                }
+            }
+            printf("%lld\n", res / 2);
+        }
+    }
+
+    return 0;
+}

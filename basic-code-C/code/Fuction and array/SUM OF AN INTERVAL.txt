@@ -1,0 +1,13 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int m,n,d=0;
+    scanf("%d%d",&m,&n);
+    if (m>n) {int res=n;
+                    n=m;
+                    m=res;}
+    for(int i=m;i<=n;i++) d=d+i;
+    printf("%d",d);
+}

@@ -1,0 +1,27 @@
+#include<stdio.h>
+
+void Sol(long long int n)
+{
+    int d = 0;
+    while(n != 0)
+    {
+        int res = n % 10;
+        d+=res;
+        n /= 10;
+
+    }
+        if(d%10==0)
+            printf("YES\n");
+        else
+            printf("NO\n");
+
+}
+int main()
+{
+    int n;
+    long long int a[1000];
+    scanf("%lli", &n);
+    for(int i=0;i<n;i++) scanf("%lli",&a[i]);
+    for(int i=0;i<n;i++) Sol(a[i]);
+
+}

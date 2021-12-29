@@ -1,0 +1,19 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void Sol(int n)
+{
+    int d=1;
+    for(int i=2;i<=n/2;i++)
+    {
+        if(n%i==0) d=d+i;
+    }
+    if (d==n) printf("%d",1) ; else printf("%d",0);
+}
+
+int main()
+{
+    int n;
+    scanf("%d",&n);
+    Sol(n);
+}

@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <stdlib.h>
+#define FOR(i,a,b) for(int i=a;i<b;i++)
+
+void nhap(int a[], int n){
+    FOR(i,0,n) scanf("%d",&a[i]);
+}
+
+void xuat(int a[],int l ,int r) {
+    FOR(i,l,r) printf("%d ",a[i]);
+}
+int main()
+{
+    int n,a[100],res,pos;
+    scanf("%d",&n);
+    nhap(a,n);
+    scanf("%d",&pos);
+    res=n-pos;
+    xuat(a,res,n);
+    xuat(a,0,res);
+
+    return 0;
+}

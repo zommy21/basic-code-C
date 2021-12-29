@@ -1,0 +1,22 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int n,a[1000],b[1000][1000];
+    scanf("%d",&n);
+    for(int i=0;i<n;i++)
+        for(int j=0;j<n;j++)
+            scanf("%d",&b[i][j]);
+    if(n==2) { a[0]=b[1][0]/2;
+                    printf("%d %d ",a[0],a[0]);}
+    else {
+        a[0]=(b[0][1]+b[0][2]-b[1][2])/2;
+    printf("%d ",a[0]);
+    for(int i=1;i<n;i++)
+        { a[i]=b[0][i]-a[0];
+         printf("%d ",a[i]);}
+
+    }
+    return 0;
+}

@@ -1,0 +1,50 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int n,a[100][100],f[100000],Prime[100000];
+void Snt(){
+    int index=1;
+    f[0] = 1;
+    f[1] = 1;
+    int i, j;
+    for(i=2; i<= 10000; i++){
+        if(f[i] == 0){
+                Prime[index] = i;
+            index++;
+            for(j = 2*i; j<=10000; j+=i){
+                f[j] = 1;
+            }
+        }
+    }
+}
+
+void Xuat(){
+ for(int i=0;i<n;i++)
+        {for(int j=0;j<n;j++)
+            printf("%d ",a[i][j]);
+            printf("\n");}}
+void Sol(){
+    int d=0,res=1, hang=n-1, cot=n-1;
+    while(d<=n/2){
+        for(int i=d;i<=cot;i++) { a[d][i]=Prime[res]; res++;}
+        for(int i=d+1;i<=hang;i++) {a[i][cot]=Prime[res]; res++;}
+        for(int i=cot-1;i>=d;i--) {a[hang][i]=Prime[res]; res++;}
+        for(int i=hang-1;i>d;i--) {a[i][d]=Prime[res]; res++; }
+        d++; hang--; cot--;
+    }
+    Xuat();
+}
+int main()
+{
+    int t,res;
+    scanf("%d",&t);
+    res=t;
+    while(t--)
+    {
+        scanf("%d",&n);
+    Snt();
+    printf("Test %d:\n",res-t);
+    Sol();
+    }
+    return 0;
+}

@@ -1,0 +1,41 @@
+#include <stdio.h>
+#include <stdlib.h>
+void swap(int *xp, int *yp)
+{
+    int temp = *xp;
+    *xp = *yp;
+    *yp = temp;
+}
+void bubbleSort(int a[], int n){
+    int i, j;
+    for (i = 1; i < n-1; i++){
+        for (j = 0; j < n-i; j++)
+            if (a[j] > a[j+1]){
+                swap(&a[j], &a[j+1]);
+            }
+}
+}
+int main()
+{
+    int m,n,a[100000],b[100000],c[10000];
+    scanf("%d%d",&m,&n);
+    for(int i=0;i<m;i++) scanf("%d",&a[i]);
+    for(int i=0;i<n;i++) scanf("%d",&b[i]);
+    bubbleSort(a,m);
+    bubbleSort(b,n);
+    for(int i=0;i<m;i++)
+        for(int j=0;j<n;j++)
+    {
+        if(a[i]==b[j])
+        {
+            c[i]=a[i];
+        }
+    }
+     for(int i=0;i<m;i++)
+        for(int j=i+1;j<m;j++)
+           {if(c[j]==c[i]) c[j]=0;}
+     for(int i=0;i<m;i++) {
+                                if(c[i]) printf("%d ",c[i]);
+                        }
+    return 0;
+}

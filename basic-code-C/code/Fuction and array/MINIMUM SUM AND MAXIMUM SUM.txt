@@ -1,0 +1,63 @@
+#include <stdio.h>
+#define N 1000
+int a[N];
+int b[N];
+
+unsigned long long min(unsigned long long n, int u[N])
+{
+    unsigned long long sum = 0;
+    int x = 0, i;
+    while (n > 0)
+    {
+        u[x] = n % 10;
+        n /= 10;
+        x++;
+    }
+    for (i = x - 1; i >= 0; i--)
+    {
+        if (u[i] == 6)
+        {
+            u[i] = 5;
+        }
+        sum = sum * 10 + u[i];
+    }
+    return sum;
+}
+unsigned long long max(unsigned long long n, int u[N])
+{
+    unsigned long long sum = 0;
+    int x = 0, i;
+    while (n > 0)
+    {
+        u[x] = n % 10;
+        n /= 10;
+        x++;
+    }
+    for (i = x - 1; i >= 0; i--)
+    {
+        if (u[i] == 5)
+        {
+            u[i] = 6;
+        }
+        sum = sum * 10 + u[i];
+    }
+    return sum;
+}
+
+int main()
+{
+    int test, i;
+    scanf("%d", &test);
+    while (test--)
+    {
+        for (i = 0; i < N; i++)
+        {
+            a[i] = 0;
+            b[i] = 0;
+        }
+        unsigned long long A, B;
+        scanf("%llu%llu", &A, &B);
+        printf("%llu ", min(A, a) + min(B, b));
+        printf("%llu\n", max(A, a) + max(B, b));
+    }
+}

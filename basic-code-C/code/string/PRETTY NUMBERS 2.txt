@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include<string.h>
+
+int check(char *s) {
+            int i,sum=0,n=strlen(s),res;
+            for(i=0; i<n; i++) {
+                sum=sum+(s[i]-'0');
+                res=s[i]-'0';
+                }
+            if(sum%10==0&&res==8) return 1;
+            else return 0;
+}
+
+
+void Sol()
+{
+    char s[505];
+    gets(s);
+    if( check(s) == 1) printf("YES\n");
+    else printf("NO\n");
+}
+
+int main() {
+    int t;
+    scanf("%d",&t);
+    getchar();
+    while( t-- ){
+        Sol();
+    }
+    return 0;
+}

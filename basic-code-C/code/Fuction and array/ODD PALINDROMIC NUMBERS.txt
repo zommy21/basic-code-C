@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdbool.h>
+
+int Palin(long long int n)
+{
+    long long int r,sum1=0,res;
+    for(res=n;n!=0;n=n/10){
+         r=n%10;
+         sum1=sum1*10+r;
+
+    }
+    if(res==sum1) return 1;
+    else return 0;
+}
+
+int Sol(long long int n)
+{
+    long long int r,sum1=0,sum2=0,res;
+    for(res=n;n!=0;n=n/10){
+         r=n%10;
+         sum1=sum1+r;
+         if(r%2==0) sum2++;
+    }
+    if(sum2==0&&sum1%2==1) return 1;
+    else return 0;
+}
+
+int main(){
+    int t;
+    scanf("%d",&t);
+    while(t--)
+    {
+    long long int a=0;
+    scanf("%lli",&a);
+    if(Sol(a)==1&&Palin(a)==1) printf("YES\n"); else printf("NO\n");
+    printf("\n");
+    }
+}
+

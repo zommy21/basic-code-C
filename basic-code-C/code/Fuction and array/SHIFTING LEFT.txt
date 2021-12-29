@@ -1,0 +1,14 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int n,a[100],res;
+    scanf("%d",&n);
+    for(int i=0;i<n;i++) scanf("%d",&a[i]);
+    scanf("%d",&res);
+    for(int i=res;i<n;i++) printf("%d ",a[i]);
+    for(int i=0;i<res;i++) printf("%d ",a[i]);
+
+    return 0;
+}

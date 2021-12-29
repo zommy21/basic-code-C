@@ -1,0 +1,14 @@
+#include <stdio.h>
+
+const long int MAX = 10000   ;
+
+int main(){
+    long int a[MAX];
+    long int n;
+        scanf("%li", &n);
+    for(long int i = 0;i < n; ++i){
+        scanf("%li", &a[i]);}
+    for(long int i = 0;i < n; ++i){
+        printf("%li\n",a[i]*a[i]);}
+    return 0;
+}

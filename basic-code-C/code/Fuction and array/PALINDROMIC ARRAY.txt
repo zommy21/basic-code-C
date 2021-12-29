@@ -1,0 +1,20 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+int main()
+{
+    int t,n,a[100];
+    scanf("%d",&t);
+    while(t--)
+    {
+        scanf("%d",&n);
+    for(int i=1;i<=n;i++) scanf("%d",&a[i]);
+    int d=0;
+    for(int i=1;i<=floor(n/2);i++)
+            if(a[i]!=a[n+1-i]) d++;
+    if(d==0) printf("YES\n") ; else printf("NO\n");
+    }
+
+    return 0;
+}

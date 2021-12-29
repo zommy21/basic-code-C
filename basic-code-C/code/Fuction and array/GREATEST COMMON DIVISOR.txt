@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <stdlib.h>
+int UCLN(long int a,long int b){
+    if (a == 0 || b == 0){
+        return a + b;
+    }
+    while (a != b){
+        if (a > b){
+            a=a-b;
+        }else{
+            b=b-a;
+        }
+    }
+    return a;
+}
+int main(){
+    long int n,a[1000],b[1000];
+    scanf("%li", &n);
+    for(long int i=0;i<n;i++) scanf("%li%li",&a[i],&b[i]);
+    for(long int i=0;i<n;i++)
+    {
+        printf("%li\n",UCLN(a[i],b[i]));
+
+    }
+}

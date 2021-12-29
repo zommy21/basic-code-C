@@ -1,0 +1,17 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    float a,b;
+    scanf("%f",&a);
+    scanf("%f",&b);
+    float c=(0-b)/a;
+    if (a==0&&b==0) printf("Infinite solutions");
+    else {
+        if(a==0&&b!=0) printf("No solution");
+            else printf("%0.2f",c);
+    }
+
+    return 0;
+}

@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int n,a[100][100];
+
+void Xuat(){
+ for(int i=0;i<n;i++)
+        {for(int j=0;j<n;j++)
+            printf("%d ",a[i][j]);
+            printf("\n");}}
+void Sol(){
+    int d=0,res=1, hang=n-1, cot=n-1;
+    while(d<=n/2){
+        for(int i=d;i<=cot;i++) a[d][i]=res++;
+        for(int i=d+1;i<=hang;i++) a[i][cot]=res++;
+        for(int i=cot-1;i>=d;i--) a[hang][i]=res++;
+        for(int i=hang-1;i>d;i--) a[i][d]=res++;
+        d++; hang--; cot--;
+    }
+    Xuat();
+}
+int main()
+{
+    scanf("%d",&n);
+    Sol();
+    return 0;
+}

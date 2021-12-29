@@ -1,0 +1,42 @@
+#include <stdio.h>
+#include <string.h>
+
+int Sol1(long long int n)
+{
+    long long int r,res,sum2=0;
+    for(res=n;n!=0;n=n/10){
+         r=n%10;
+         if(r==9) sum2++;
+
+    }
+    if(sum2!=0) return 1;
+    else return 0;
+}
+int Palindromic(long long int n)
+{
+    long long int r,sum1=0,res;
+    for(res=n;n!=0;n=n/10){
+         r=n%10;
+         sum1=sum1*10+r;
+
+    }
+    if(res==sum1) return 1;
+    else return 0;
+}
+int main(){
+    long long int m,n,d=0;
+    scanf("%lli",&m);
+    for(long long int i=2;i<=m;i++)
+    {
+        if(Palindromic(i)==1)
+            {
+                if(Sol1(i)==0)
+                    { printf("%lli ",i); d++; }
+
+            }
+    }
+    printf("\n%lli",d);
+
+    return 0;
+}
+
