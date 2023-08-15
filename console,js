@@ -1,2 +1,6 @@
 // hey this is a comment
 console.log("Hello World")
+
+function test() {
+    console.log("test")
+}
